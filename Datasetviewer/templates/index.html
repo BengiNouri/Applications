@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset Viewer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Dataset Viewer</h1>
+    <form id="upload-form">
+        <!-- File input for CSV and XLSX files -->
+        <input type="file" id="dataset" name="file" accept=".csv, .xlsx" onchange="loadVariables()">
+        <br>
+
+        <!-- Dropdown for selecting chart type -->
+        <label for="chartType">Choose a chart type:</label>
+        <select name="chart_type" id="chartType">
+            <option value="histogram">Histogram</option>
+            <option value="boxplot">Boxplot</option>
+            <option value="statistics">Descriptive Statistics</option>
+        </select>
+        <br>
+
+        <!-- Dropdowns for selecting variables. These are initially empty and will be populated with column names after file is loaded -->
+        <label for="variableX">X-axis variable:</label>
+        <select id="variableX">
+            <option value="">Select Variable for X-axis</option>
+            <!-- Options will be added here based on the dataset -->
+        </select>
+        <br>
+
+        <label for="variableY">Y-axis variable:</label>
+        <select id="variableY">
+            <option value="">Select Variable for Y-axis</option>
+            <!-- Options will be added here based on the dataset -->
+        </select>
+        <br>
+
+        <!-- Button to trigger plot generation -->
+        <button type="button" onclick="generatePlot()">Generate</button>
+    </form>
+    <div id="plot"></div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
